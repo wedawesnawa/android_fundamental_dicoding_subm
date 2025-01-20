@@ -1,0 +1,42 @@
+package com.example.appevents.ui.finished
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.example.appevents.databinding.ItemEventBinding
+import com.example.appevents.ui.models.Event
+import com.bumptech.glide.Glide
+
+class FinishedEventsAdapter(private val onClick: (Event) -> Unit) : ListAdapter<Event, FinishedEventsAdapter.EventViewHolder>(EventDiffCallback()) {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
+        val binding = ItemEventBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return EventViewHolder(binding)
+    }
+
+    override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
+        val event = getItem(position)
+        holder.bind(event, onClick)
+    }
+
+    class EventViewHolder(private val binding: ItemEventBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(event: Event, onClick: (Event) -> Unit) {
+            binding.eventName.text = event.name
+            Glide.with(binding.eventImage.context).load(event.imageLogo).into(binding.eventImage)
+
+            binding.root.setOnClickListener { onClick(event) }
+        }
+    }
+
+    class EventDiffCallback : DiffUtil.ItemCallback<Event>() {
+        override fun areItemsTheSame(oldItem: Event, newItem: Event): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Event, newItem: Event): Boolean {
+            return oldItem == newItem
+        }
+    }
+}

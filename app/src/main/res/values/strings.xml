@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">App Events</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">UpComing</string>
+    <string name="title_notifications">Finished</string>
+    <string name="event_image_description">gambar</string>
+    <string name="button_register">Register</string>
+    <string name="text_404">Tidak ada event yang selesai</string>
+    <string name="title_search">Search</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="tidak_ada_event_yang_selesai">Tidak ada event yang selesai</string>
+    <string name="sisa_kouta">Sisa Kuota: %1$d</string>
+    <string name="setting">Setting</string>
+    <string name="settings_title">Setting</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="enable_dark_mode">Enable dark mode</string>
+    <string name="daily_reminder">Daily reminder</string>
+    <string name="enable_notification">Enable notification</string>
+    <string name="no_favorites">Tidak ada favorite</string>
+    <string name="error_loading_data">Internet kamu bermasalah, coba lagi nanti</string>
+</resources>
